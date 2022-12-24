@@ -25,5 +25,5 @@ def test_register_error_password(driver, example_new_user, example_not_correct_u
     driver.find_element(*TestLocators.BUTTON_REGISTRATION).click()
     time.sleep(2)
     # проверить наличие ошибки
-    assert driver.find_element(*TestLocators.ERROR_PASSWORD).text == 'Некорректный пароль'
+    assert len(driver.find_elements(*TestLocators.ERROR_PASSWORD))
 
