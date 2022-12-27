@@ -1,8 +1,8 @@
 # Регистрация с ошибкой для некорректного пароля.
 
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from locators import TestLocators
-import time
 
 #открыть главную страницу
 def test_register_error_password(driver, example_new_user, example_not_correct_user):
@@ -23,7 +23,7 @@ def test_register_error_password(driver, example_new_user, example_not_correct_u
     driver.find_element(*TestLocators.PASSWORD_INPUT).send_keys(password_for_registration)
     #нажать кнопку Зарегистрироваться
     driver.find_element(*TestLocators.BUTTON_REGISTRATION).click()
-    time.sleep(2)
+    WebDriverWait(driver, 5).until(EC.presence_of_element_located(TestLocators.ERROR_PASSWORD))
     # проверить наличие ошибки
-    assert len(driver.find_elements(*TestLocators.ERROR_PASSWORD))
+    assert driver.find_element(*TestLocators.ERROR_PASSWORD).text == 'Некорректный пароль'
 

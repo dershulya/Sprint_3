@@ -1,8 +1,8 @@
 # вход через кнопку «Личный кабинет»
 
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from locators import TestLocators
-import time
 
 #открыть главную страницу
 def test_login_in_register_form(driver, example_correct_user):
@@ -20,6 +20,6 @@ def test_login_in_register_form(driver, example_correct_user):
     #нажать кнопку Войти
     driver.find_element(*TestLocators.BUTTON_LOGIN).click()
     #проверить, что появилась кнопка Оформить заказ
-    time.sleep(2)
-    assert driver.find_element(*TestLocators.BUTTON_CHECKOUT).text == 'Оформить заказ'
+    WebDriverWait(driver, 5).until(EC.presence_of_element_located(TestLocators.BUTTON_CHECKOUT))
+    assert driver.find_element(*TestLocators.BUTTON_CHECKOUT).text == "Оформить заказ"
 

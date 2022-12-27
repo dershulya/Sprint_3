@@ -1,8 +1,8 @@
 # переход по клику на «Личный кабинет»
 
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from locators import TestLocators
-import time
 
 #открыть главную страницу
 def test_private_office_open(driver, example_correct_user):
@@ -19,10 +19,10 @@ def test_private_office_open(driver, example_correct_user):
     driver.find_element(*TestLocators.PASSWORD_LOGIN).send_keys(password_for_login)
     #нажать кнопку Войти
     driver.find_element(*TestLocators.BUTTON_LOGIN).click()
-    time.sleep(2)
+    WebDriverWait(driver, 5).until(EC.url_to_be('https://stellarburgers.nomoreparties.site/'))
     # нажать кнопку Личный кабинет
     driver.find_element(*TestLocators.BUTTON_PRIVATE_OFFICE).click()
     #проверить url страницы
-    time.sleep(2)
-    assert driver.current_url== "https://stellarburgers.nomoreparties.site/account/profile"
+    WebDriverWait(driver, 10).until_not(EC.url_to_be('https://stellarburgers.nomoreparties.site'))
+    assert driver.current_url == "https://stellarburgers.nomoreparties.site/account"
 

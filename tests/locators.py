@@ -14,7 +14,7 @@ class TestLocators:
     # кнопка "Зарегистрироваться" на странице регистрации
     BUTTON_REGISTRATION = By.XPATH, '//*[@id="root"]/div/main/div/form/button'
     # ошибка "Некорректный пароль"
-    ERROR_PASSWORD = By.XPATH, '//*[contains(text(), "Некорректный пароль")]'
+    ERROR_PASSWORD = By.CSS_SELECTOR, ".input__error"
     # кнопка "Войти" на странице авторизации
     BUTTON_LOGIN = By.XPATH, '//*[@id="root"]/div/main/div/form/button'
     # кнопка "Войти" в аккаунт на главной
@@ -24,22 +24,22 @@ class TestLocators:
     # кнопка "Войти" на странице регистрации
     BUTTON_LOGIN_ON_REGISTRATION = By.XPATH, '//a[.="Войти"]'
     # кнопка "Оформить заказ"
-    BUTTON_CHECKOUT = By.XPATH, '//button[.="Войти в аккаунт"]'
+    BUTTON_CHECKOUT = By.XPATH, '//button[.="Оформить заказ"]'
     # кнопка "Личный кабинет"
     BUTTON_PRIVATE_OFFICE = By.XPATH, '//*[@id="root"]/div/header/nav/a/p'
     # кнопка "Восстановить пароль" на странице авторизации
-    BUTTON_RESTORE_PASSWORD = By.XPATH, '//*[@id="root"]/div/main/div/div/p[2]/a '
+    BUTTON_RESTORE_PASSWORD = By.XPATH, './/a[.="Восстановить пароль"]'
     # кнопка "Войти" на странице восстановления пароля
-    BUTTON_LOGIN_ON_RESTORE_PASSWORD = By.XPATH, '//a[.="Войти"] '
+    BUTTON_LOGIN_ON_RESTORE_PASSWORD = By.XPATH, '//a[.="Войти"]'
     # кнопка "Конструктор" на странице личного кабинета
-    BUTTON_CONSTRUCTOR = By.XPATH, '//*[@id="root"]/div/header/nav/ul/li[1]/a/p'
+    BUTTON_CONSTRUCTOR = By.XPATH, './/p[.="Конструктор"]'
     # логотип "Stellar Burgers" на странице личного кабинета
     BUTTON_LOGO = By.XPATH, '//*[@id="root"]/div/header/nav/div'
     # кнопка "Выйти" на странице личного кабинета
-    BUTTON_LOGOUT = By.XPATH, '//*[@id="root"]/div/main/div/nav/ul/li[3]/button'
+    BUTTON_LOGOUT = By.XPATH, './/button[@class="Account_button__14Yp3 text text_type_main-medium text_color_inactive"]'
     # кнопка "Булки" на странице Конструктор
-    BUTTON_LOAF = By.XPATH, '//*[@id="root"]/div/main/section[1]/div[1]/div[1]'
+    BUTTON_LOAF =  By.XPATH, '//div[.="Булки"]'
     # кнопка "Соусы" на странице Конструктор
-    BUTTON_SAUCE = By.XPATH, '//*[@id="root"]/div/main/section[1]/div[1]/div[2]'
+    BUTTON_SAUCE = By.XPATH, '//div[.="Соусы"]'
     # кнопка "Начинки" на странице Конструктор
-    BUTTON_FILLING = By.XPATH, '//*[@id="root"]/div/main/section[1]/div[1]/div[3]'
+    BUTTON_FILLING = By.XPATH, '//div[.="Начинки"]'

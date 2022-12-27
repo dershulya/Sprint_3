@@ -3,8 +3,8 @@
 # Минимальный пароль — шесть символов.
 
 from selenium.webdriver.support.wait import WebDriverWait
+from selenium.webdriver.support import expected_conditions as EC
 from locators import TestLocators
-import time
 
 #открыть главную страницу
 def test_register_successful(driver, example_new_user):
@@ -26,6 +26,6 @@ def test_register_successful(driver, example_new_user):
     #нажать кнопку Зарегистрироваться
     driver.find_element(*TestLocators.BUTTON_REGISTRATION).click()
     #проверить url страницы
-    time.sleep(2)
-    assert driver.current_url== "https://stellarburgers.nomoreparties.site/login"
+    WebDriverWait(driver, 5).until_not(EC.url_to_be('https://stellarburgers.nomoreparties.site/register'))
+    assert driver.current_url == "https://stellarburgers.nomoreparties.site/login"
 
